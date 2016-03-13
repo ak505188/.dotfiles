@@ -29,7 +29,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Set ignored files for Ctrl-P
-set wildignore+=*.class,*.swp
+set wildignore+=*.class,*.swp,node_modules
 
 
 " Tab Settings
@@ -40,6 +40,8 @@ set wildignore+=*.class,*.swp
 " Expand tabs to spaces
 " set expandtab
 
+" Force *.md to markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Turn on Line Numbers
 set number
