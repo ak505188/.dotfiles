@@ -31,6 +31,9 @@ filetype plugin indent on    " required
 " Set ignored files for Ctrl-P
 set wildignore+=*.class,*.swp,node_modules
 
+" Newline without entering insert mode
+" nmap <S-Enter> O<Esc> doesn't work in CLI
+nmap <CR> o<Esc>
 
 " Tab Settings
 " Set tab width
@@ -42,6 +45,10 @@ set wildignore+=*.class,*.swp,node_modules
 
 " Force *.md to markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Tab settings for markdown
+" Width = 2 & Use spaces
+autocmd FileType markdown setlocal shiftwidth=2 expandtab
 
 " Turn on Line Numbers
 set number

@@ -1,0 +1,11 @@
+[user]
+	name = Alexandr Kolesnik
+	email = alexandr.kolesnik.51@my.csun.edu
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
+[color]
+	ui = auto
+
