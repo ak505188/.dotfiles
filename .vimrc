@@ -59,5 +59,9 @@ syntax on
 " Color Scheme
 colorscheme desert
 
+" Leader key shortcuts
+" Set up space as leader
+let mapleader = "\<Space>"
+
 " Remove whitespace at the end of each line in file
 nmap <Leader>l :%s/\s\+$//g<CR>
