@@ -67,4 +67,4 @@ let mapleader = "\<Space>"
 nmap <Leader>l :%s/\s\+$//g<CR>
 
 " Remove whitespace on file save
-:silent! autocmd BufWritePre * :%s/\s\+$//g
+:silent autocmd BufWritePre * :%s/\s\+$//ge
