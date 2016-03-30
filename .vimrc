@@ -28,20 +28,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
 " Set ignored files for Ctrl-P
 set wildignore+=*.class,*.swp,node_modules
 
 " Newline without entering insert mode
 " nmap <S-Enter> O<Esc> doesn't work in CLI
-nmap <CR> o<Esc>
-
-" Tab Settings
-" Set tab width
-" set tabstop=2
-" Set indent width
-" set shiftwidth=2
-" Expand tabs to spaces
-" set expandtab
+nmap <CR> i<CR><Esc>
 
 " Force *.md to markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -62,9 +55,6 @@ colorscheme desert
 " Leader key shortcuts
 " Set up space as leader
 let mapleader = "\<Space>"
-
-" Remove whitespace at the end of each line in file
-nmap <Leader>l :%s/\s\+$//g<CR>
 
 " Remove whitespace on file save
 :silent autocmd BufWritePre * :%s/\s\+$//ge
