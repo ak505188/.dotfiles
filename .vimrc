@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sleuth'
 " Ctrl-p Fuzzy file searching
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,6 +43,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Tab settings for markdown
 " Width = 2 & Use spaces
 autocmd FileType markdown setlocal shiftwidth=2 expandtab
+autocmd FileType markdown setlocal tw=80 fo+=t
 
 " Turn on Line Numbers
 set number
@@ -58,3 +60,6 @@ let mapleader = "\<Space>"
 
 " Remove whitespace on file save
 :silent autocmd BufWritePre * :%s/\s\+$//ge
+
+" Change current directory to directory of buffer
+set autochdir
