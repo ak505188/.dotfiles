@@ -25,7 +25,7 @@ OS=$(uname)
 case "$OS" in
 # OSX
 Darwin)
-	git config credential.helper "osxkeychain"
+	git config --system credential.helper "osxkeychain"
 	;;
 *)	echo "Unknown Operating System"
 	;;
