@@ -11,11 +11,11 @@ function parse_git_branch {
 [[ -f ~/.bash_colors ]] && . ~/.bash_colors
 
 
-PS1="\[${Green}\]\u@\h \[${Purple}\]\w \[${BRed}\]\$(parse_git_branch)\[${Reset}\]$ "
-
 # Used to determine if terminal supports colors
 if [ $TERM = "dumb" ]; then
 	PS1="\u@\h \w \$(parse_git_branch)$ "
+else
+	PS1="\[${Green}\]\u@\h \[${Purple}\]\w \[${BRed}\]\$(parse_git_branch)\[${Reset}\]$ "
 fi
 
 # Detect Operating System
