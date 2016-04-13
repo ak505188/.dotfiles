@@ -16,6 +16,8 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'ctrlpvim/ctrlp.vim'
 " Easy Tables enable with TableModeEnable
 Plugin 'dhruvasagar/vim-table-mode'
+" Easy manipulation of surrounding
+Plugin 'tpope/vim-surround'
 " Java autocompletion
 " Plugin 'artur-shaik/vim-javacomplete2'
 
@@ -62,6 +64,17 @@ colorscheme desert
 " Leader key shortcuts
 " Set up space as leader
 let mapleader = "\<Space>"
+" Tab for next buffer
+nnoremap <Tab> :bn<CR>
+" Shift-Tab for next buffer
+nnoremap <S-Tab> :bp<CR>
+" Copy to system clipboard
+noremap <Leader>y "+y
+" Paste from system clipboard
+noremap <Leader>p "+p
+noremap <Leader>P "+P
+
+
 
 " Remove whitespace on file save
 :silent autocmd BufWritePre * :%s/\s\+$//ge
