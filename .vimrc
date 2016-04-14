@@ -1,5 +1,5 @@
 " Vundle
-set nocompatible              " be iMproved, required
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -73,7 +73,6 @@ noremap <Leader>y "+y
 " Paste from system clipboard
 noremap <Leader>p "+p
 noremap <Leader>P "+P
-
 
 
 " Remove whitespace on file save
