@@ -7,6 +7,14 @@ function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
 }
 
+function osx_specific {
+	alias ls="ls -G"
+}
+
+function linux_specific {
+	alias ls="ls --color"
+}
+
 # Import colors from bash_colors
 [[ -f ~/.bash_colors ]] && . ~/.bash_colors
 
@@ -26,6 +34,10 @@ case "$OS" in
 # OSX
 Darwin)
 	git config --system credential.helper "osxkeychain"
+	osx_specific
+	;;
+Linux)
+	linux_specific
 	;;
 *)	echo "Unknown Operating System"
 	;;
