@@ -20,6 +20,10 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tpope/vim-surround'
 " Java autocompletion
 " Plugin 'artur-shaik/vim-javacomplete2'
+" Scala plugin
+" Plugin 'derekwyatt/vim-scala'
+" LaTeX plugin
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,6 +50,9 @@ nmap <CR> i<CR><Esc>
 
 " Force *.md to markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" Force *.tex to latex
+autocmd BufNewFile,BufReadPost *.tex set filetype=latex
+" let g:tex_flavor='latex'
 
 " Tab settings for markdown
 " Width = 2 & Use spaces
