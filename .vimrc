@@ -20,10 +20,8 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tpope/vim-surround'
 " Java autocompletion
 " Plugin 'artur-shaik/vim-javacomplete2'
-" Scala plugin
-" Plugin 'derekwyatt/vim-scala'
-" LaTeX plugin
-Plugin 'lervag/vimtex'
+" Syntax checking
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,3 +85,12 @@ noremap <Leader>P "+P
 
 " Change current directory to directory of buffer
 set autochdir
+
+" Syntastic recommended defaults
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+" 0 = Don't run linter on save and quit
+let g:syntastic_check_on_wq = 0
