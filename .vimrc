@@ -18,10 +18,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 " Easy manipulation of surrounding
 Plugin 'tpope/vim-surround'
-" Java autocompletion
-" Plugin 'artur-shaik/vim-javacomplete2'
 " Syntax checking
 Plugin 'scrooloose/syntastic'
+" Allows repeating of macros
+Plugin 'tpope/vim-repeat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -80,8 +80,15 @@ noremap <Leader>p "+p
 noremap <Leader>P "+P
 
 
-" Remove whitespace on file save
-:silent autocmd BufWritePre * :%s/\s\+$//ge
+" Remove whitespace on file save if not markdown
+fun! StripTrailingWhiteSpace()
+  " don't strip on these filetypes
+  if &ft =~ 'markdown'
+    return
+  endif
+  %s/\s\+$//e
+endfun
+autocmd bufwritepre * :call StripTrailingWhiteSpace()
 
 " Change current directory to directory of buffer
 set autochdir
@@ -94,3 +101,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " 0 = Don't run linter on save and quit
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers = []
+
