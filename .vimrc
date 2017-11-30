@@ -1,4 +1,6 @@
 " Vundle
+" To install Vundle run
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 filetype off                  " required
 
@@ -9,19 +11,28 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" To install
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 " AutoTabbing plugin
 Plugin 'tpope/vim-sleuth'
 " Ctrl-p Fuzzy file searching
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+" Grep but better
+Plugin 'mileszs/ack.vim'
 " Easy Tables enable with TableModeEnable
 Plugin 'dhruvasagar/vim-table-mode'
 " Easy manipulation of surrounding
 Plugin 'tpope/vim-surround'
-" Syntax checking
-Plugin 'scrooloose/syntastic'
+" Asynchronous syntax checking\
+Plugin 'w0rp/ale'
 " Allows repeating of macros
 Plugin 'tpope/vim-repeat'
+" Line up text easily
+Plugin 'godlygeek/tabular'
+" Typescript
+Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -40,7 +51,7 @@ filetype plugin indent on    " required
 " autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
 " Set ignored files for Ctrl-P
-set wildignore+=*.class,*.swp,node_modules
+set wildignore+=*.class,*.swp,node_modules,*.pyc
 
 " Newline without entering insert mode
 " nmap <S-Enter> O<Esc> doesn't work in CLI
@@ -78,7 +89,17 @@ noremap <Leader>y "+y
 " Paste from system clipboard
 noremap <Leader>p "+p
 noremap <Leader>P "+P
+" Tabular shortcut
+nnoremap <Leader>t :Tabularize /=<CR>
+" CTRL-p binding for fzf.vim
+nnoremap <C-p> :FZF<CR>
+" Bindings for ack.vim
+nnoremap <Leader>a :Ack!<Space>
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
+autocmd FileType typescript :set makeprg=tsc
 
 " Remove whitespace on file save if not markdown
 fun! StripTrailingWhiteSpace()
@@ -90,16 +111,13 @@ fun! StripTrailingWhiteSpace()
 endfun
 autocmd bufwritepre * :call StripTrailingWhiteSpace()
 
-" Change current directory to directory of buffer
-set autochdir
+" Persistent undo
+" Directory must be made manually
+set undofile
+set undodir=$HOME/.vim/undo
 
-" Syntastic recommended defaults
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" 0 = Don't run linter on save and quit
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_checkers = []
+set undolevels=1000
+set undoreload=10000
 
+" changed buffers are automatically saved
+set autowriteall
