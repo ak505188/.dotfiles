@@ -33,6 +33,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 " Typescript
 Plugin 'leafgarland/typescript-vim'
+" Color schemes
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,7 +77,8 @@ set number
 syntax on
 
 " Color Scheme
-colorscheme desert
+" colorscheme desert
+colorscheme DevC++
 
 " Leader key shortcuts
 " Set up space as leader
@@ -121,3 +124,6 @@ set undoreload=10000
 
 " changed buffers are automatically saved
 set autowriteall
+
+" set :bw to Leader C
+nnoremap <Leader>c :bw<CR>
