@@ -35,6 +35,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'leafgarland/typescript-vim'
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
+" JSX Syntax Highlighting
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

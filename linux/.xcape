@@ -3,6 +3,7 @@
 # https://github.com/alols/xcape
 
 # clear all mappings
+setxkbmap -layout us
 setxkbmap -option ''
 
 # assign capslock to control on press, escape on release
