@@ -2,6 +2,7 @@ alias gs="git status"
 alias gc="git commit -m"
 alias gp="git push -u origin"
 alias ls="ls -G"
+alias serve="browser-sync start --server -f ."
 
 function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
@@ -13,6 +14,7 @@ function osx_specific {
 
 function linux_specific {
 	alias ls="ls --color"
+	alias open="xdg-open"
 }
 
 # Import colors from bash_colors
@@ -42,4 +44,3 @@ Linux)
 *)	echo "Unknown Operating System"
 	;;
 esac
-

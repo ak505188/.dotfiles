@@ -21,18 +21,12 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'junegunn/fzf'
 " Grep but better
 Plugin 'mileszs/ack.vim'
-" Easy Tables enable with TableModeEnable
-Plugin 'dhruvasagar/vim-table-mode'
 " Easy manipulation of surrounding
 Plugin 'tpope/vim-surround'
-" Asynchronous syntax checking\
-Plugin 'w0rp/ale'
 " Allows repeating of macros
 Plugin 'tpope/vim-repeat'
 " Line up text easily
 Plugin 'godlygeek/tabular'
-" Typescript
-Plugin 'leafgarland/typescript-vim'
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
 " JSX Syntax Highlighting
@@ -40,6 +34,14 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 " Emmet
 Plugin 'mattn/emmet-vim'
+" Comment
+Plugin 'tpope/vim-commentary'
+" Language Server Protocol
+" https://github.com/prabirshrestha/vim-lsp
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -97,8 +99,6 @@ noremap <Leader>y "+y
 " Paste from system clipboard
 noremap <Leader>p "+p
 noremap <Leader>P "+P
-" Tabular shortcut
-nnoremap <Leader>t :Tabularize /=<CR>
 " CTRL-p binding for fzf.vim
 nnoremap <C-p> :FZF<CR>
 " Bindings for ack.vim
@@ -132,3 +132,22 @@ set autowriteall
 
 " set :bw to Leader C
 nnoremap <Leader>c :bw<CR>
+
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'javascript support using typescript-language-server',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+    \ 'whitelist': ['javascript', 'javascript.jsx'],
+    \ })
+else
+  echo "typescript-language-server not found."
+endif
+
+nnoremap gd :LspDefinition<CR>
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+set completeopt+=preview
+let g:lsp_diagnostics_echo_cursor = 1
