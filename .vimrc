@@ -1,66 +1,51 @@
-" Vundle
-" To install Vundle run
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+""" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-filetype off                  " required
+" filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/vim/plug')
 
-" let Vundle manage Vundle, required
-" To install
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-Plugin 'VundleVim/Vundle.vim'
 " AutoTabbing plugin
-Plugin 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
+
 " Ctrl-p Fuzzy file searching
-" Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'junegunn/fzf'
+Plug 'junegunn/fzf'
+
 " Grep but better
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
+
 " Easy manipulation of surrounding
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
+
 " Allows repeating of macros
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
+
 " Line up text easily
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
+
 " Color schemes
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
+
 " JSX Syntax Highlighting
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 " Emmet
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
+
 " Comment
-Plugin 'tpope/vim-commentary'
-" Language Server Protocol
-" https://github.com/prabirshrestha/vim-lsp
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'tpope/vim-commentary'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Auto Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Brief help on Vundle
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
-" config for javacomplete2
-" autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-" Set ignored files for Ctrl-P
-set wildignore+=*.class,*.swp,node_modules,*.pyc
+" Search before pressing enter & highlight search
+set incsearch
+" set hlsearch
 
 " Newline without entering insert mode
 " nmap <S-Enter> O<Esc> doesn't work in CLI
@@ -74,8 +59,9 @@ autocmd BufNewFile,BufReadPost *.tex set filetype=latex
 
 " Tab settings for markdown
 " Width = 2 & Use spaces
-autocmd FileType markdown setlocal shiftwidth=2 expandtab
-autocmd FileType markdown setlocal tw=80 fo+=t
+" autocmd FileType markdown setlocal shiftwidth=2 expandtab
+" autocmd FileType markdown setlocal tw=80 fo+=t
+autocmd FileType markdown setlocal textwidth=0 wrapmargin=0 wrap linebreak columns=120
 
 " Turn on Line Numbers
 set number
@@ -84,23 +70,28 @@ set number
 syntax on
 
 " Color Scheme
-" colorscheme desert
 colorscheme DevC++
 
 " Leader key shortcuts
 " Set up space as leader
 let mapleader = "\<Space>"
-" Tab for next buffer
+
+nnoremap j gj
+nnoremap k gk
+
+" Tab for buffer switching
 nnoremap <Tab> :bn<CR>
-" Shift-Tab for next buffer
 nnoremap <S-Tab> :bp<CR>
-" Copy to system clipboard
+nnoremap <Leader>c :bw<CR>
+
+" Copy & Paste to/from system clipboard
 noremap <Leader>y "+y
-" Paste from system clipboard
 noremap <Leader>p "+p
 noremap <Leader>P "+P
+
 " CTRL-p binding for fzf.vim
 nnoremap <C-p> :FZF<CR>
+
 " Bindings for ack.vim
 nnoremap <Leader>a :Ack!<Space>
 if executable('ag')
@@ -130,24 +121,18 @@ set undoreload=10000
 " changed buffers are automatically saved
 set autowriteall
 
-" set :bw to Leader C
-nnoremap <Leader>c :bw<CR>
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'javascript support using typescript-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-    \ 'whitelist': ['javascript', 'javascript.jsx'],
-    \ })
-else
-  echo "typescript-language-server not found."
-endif
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-nnoremap gd :LspDefinition<CR>
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-set completeopt+=preview
-let g:lsp_diagnostics_echo_cursor = 1
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()

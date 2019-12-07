@@ -18,7 +18,7 @@ function linux_specific {
 }
 
 # Import colors from bash_colors
-[[ -f ~/.bash_colors ]] && . ~/.bash_colors
+[[ -f ./.bash_colors ]] && . ./.bash_colors
 
 
 # Used to determine if terminal supports colors
