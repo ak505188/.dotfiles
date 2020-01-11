@@ -32,6 +32,9 @@ Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Better Whitespace Handling
+Plug 'ntpeters/vim-better-whitespace'
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
@@ -53,6 +56,7 @@ nmap <CR> i<CR><Esc>
 
 " Force *.md to markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.mdx set filetype=markdown
 " Force *.tex to latex
 autocmd BufNewFile,BufReadPost *.tex set filetype=latex
 " let g:tex_flavor='latex'
@@ -70,7 +74,7 @@ set number
 syntax on
 
 " Color Scheme
-colorscheme DevC++
+colorscheme blackbeauty
 
 " Leader key shortcuts
 " Set up space as leader
