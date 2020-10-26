@@ -11,7 +11,8 @@ call plug#begin('~/vim/plug')
 Plug 'tpope/vim-sleuth'
 
 " Ctrl-p Fuzzy file searching
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Grep but better
 Plug 'mileszs/ack.vim'
@@ -82,6 +83,10 @@ let mapleader = "\<Space>"
 
 nnoremap j gj
 nnoremap k gk
+nnoremap Y y$
+
+" Open terminal in vim
+noremap <Leader>t :terminal<CR>
 
 " Tab for buffer switching
 nnoremap <Tab> :bn<CR>
@@ -94,7 +99,9 @@ noremap <Leader>p "+p
 noremap <Leader>P "+P
 
 " CTRL-p binding for fzf.vim
-nnoremap <C-p> :FZF<CR>
+" https://stackoverflow.com/questions/51093087/ignore-node-modules-with-vim-fzf
+" nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :GFiles --exclude-standard --others --cached<CR>
 
 " Bindings for ack.vim
 nnoremap <Leader>a :Ack!<Space>
@@ -138,5 +145,5 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" CTRL-Space finish completion for COC
+inoremap <silent><expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
