@@ -47,6 +47,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 " Search before pressing enter & highlight search
 set incsearch
 " set hlsearch
@@ -85,8 +88,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
 
-" Open terminal in vim
-noremap <Leader>t :terminal<CR>
+nnoremap <Leader>t :terminal<CR>
 
 " Tab for buffer switching
 nnoremap <Tab> :bn<CR>
