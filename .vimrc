@@ -101,7 +101,8 @@ noremap <Leader>P "+P
 " CTRL-p binding for fzf.vim
 " https://stackoverflow.com/questions/51093087/ignore-node-modules-with-vim-fzf
 " nnoremap <C-p> :FZF<CR>
-nnoremap <C-p> :GFiles --exclude-standard --others --cached<CR>
+" nnoremap <C-p> :GFiles --exclude-standard --others --cached<CR>
+nnoremap <expr> <C-P> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
 
 " Bindings for ack.vim
 nnoremap <Leader>a :Ack!<Space>
@@ -147,3 +148,6 @@ endfunction
 
 " CTRL-Space finish completion for COC
 inoremap <silent><expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+" Set tabwidth to 2
+set tabstop=2
