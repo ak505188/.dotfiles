@@ -90,6 +90,8 @@ nnoremap Y y$
 
 nnoremap <Leader>t :terminal<CR>
 
+nnoremap Y y$
+
 " Tab for buffer switching
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
@@ -153,3 +155,4 @@ inoremap <silent><expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C
 
 " Set tabwidth to 2
 set tabstop=2
+let g:coc_disable_startup_warning = 1
