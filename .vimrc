@@ -14,6 +14,9 @@ Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Git from Vim
+Plug 'tpope/vim-fugitive'
+
 " Grep but better
 Plug 'mileszs/ack.vim'
 
@@ -81,7 +84,7 @@ set number
 syntax on
 
 " Color Scheme
-colorscheme blackbeauty
+colorscheme basic-dark
 
 " Leader key shortcuts
 " Set up space as leader
