@@ -45,6 +45,9 @@ Plug 'tpope/vim-commentary'
 " Auto Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Git Stuff
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 set encoding=utf-8
