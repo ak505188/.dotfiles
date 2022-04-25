@@ -17,6 +17,9 @@ Plug 'junegunn/fzf.vim'
 " Git from Vim
 Plug 'tpope/vim-fugitive'
 
+" Filetree
+Plug 'preservim/nerdtree'
+
 " Grep but better
 Plug 'mileszs/ack.vim'
 
@@ -162,3 +165,12 @@ inoremap <silent><expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C
 " Set tabwidth to 2
 set tabstop=2
 let g:coc_disable_startup_warning = 1
+
+" https://stackoverflow.com/questions/821902/disabling-swap-files-creation-in-vim
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+" Open Nerdtree
+"
+nnoremap <Leader>f :NERDTreeToggle<CR>
