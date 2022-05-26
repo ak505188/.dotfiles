@@ -2,6 +2,8 @@
 # depends xmodmap xcape
 # https://github.com/alols/xcape
 
+export XCAPE_LOADED=true
+
 # clear all mappings
 setxkbmap -layout us
 setxkbmap -option ''

@@ -20,7 +20,6 @@ function linux_specific {
 # Import colors from bash_colors
 [[ -f ~/.bash_colors ]] && . ~/.bash_colors
 
-
 # Used to determine if terminal supports colors
 if [ $TERM = "dumb" ]; then
 	PS1="\u@\h \w \$(parse_git_branch)$ "
@@ -44,7 +43,3 @@ Linux)
 *)	echo "Unknown Operating System"
 	;;
 esac
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

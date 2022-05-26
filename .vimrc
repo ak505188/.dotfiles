@@ -116,6 +116,8 @@ noremap <Leader>P "+P
 " nnoremap <C-p> :FZF<CR>
 " nnoremap <C-p> :GFiles --exclude-standard --others --cached<CR>
 nnoremap <expr> <C-P> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
+" fzf.vim :Buffers
+nnoremap <Leader>b :Buffers<CR>
 
 " Bindings for ack.vim
 nnoremap <Leader>a :Ack!<Space>
