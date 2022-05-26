@@ -1,0 +1,10 @@
+- link:
+    ~/.vimrc:
+      relink: true
+      path: vimrc
+    ~/.zshrc:
+      force: true
+      path: zshrc
+    ~/.dotfiles:
+      force: true
+      path: .
