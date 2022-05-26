@@ -1,6 +1,9 @@
 #!/bin/bash
 # Copied from https://github.com/iraquitan/iraquitan-dotfiles/blob/master/pre-install.sh
 
+# Fetch and update submodules
+git submodule update --init --recursive
+
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
 if [ ! -d "$OMZDIR" ]; then
