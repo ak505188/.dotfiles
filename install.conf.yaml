@@ -1,3 +1,10 @@
+- clean: ['~', '~/.oh-my-zsh/custom/', '~/.oh-my-zsh/custom/plugins/']
+
+- shell:
+  - [sh pre-install.sh, Running pre installation script]
+  - [mkdir -p ~/.oh-my-zsh/custom/, Creating oh-my-zsh custom folders]
+  - [mkdir -p ~/.oh-my-zsh/custom/plugins, Creating oh-my-zsh custom plugins folders]
+
 - link:
     ~/.vimrc:
       relink: true
@@ -8,3 +15,6 @@
     ~/.dotfiles:
       force: true
       path: .
+    ~/.oh-my-zsh/custom/plugins/zsh-nvm: oh-my-zsh/custom/plugins/zsh-nvm/
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions: oh-my-zsh/custom/plugins/zsh-autosuggestions/
