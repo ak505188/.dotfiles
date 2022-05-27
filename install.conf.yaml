@@ -5,6 +5,12 @@
   - [mkdir -p ~/.oh-my-zsh/custom/, Creating oh-my-zsh custom folders]
   - [mkdir -p ~/.oh-my-zsh/custom/plugins, Creating oh-my-zsh custom plugins folders]
 
+- create:
+  - ~/.vim/autoload/plugin
+  - ~/.vim/undo/
+  - ~/.vim/swap/
+  - ~/.vim/backup
+
 - link:
     ~/.vimrc:
       relink: true
@@ -12,6 +18,9 @@
     ~/.zshrc:
       force: true
       path: zshrc
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
     ~/.dotfiles:
       force: false
       path: .

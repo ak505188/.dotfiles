@@ -50,6 +50,8 @@ Plug 'tpope/vim-commentary'
 
 " Auto Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" For lazyload node to work with coc.nvim
+let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
 " Git Stuff
 Plug 'tpope/vim-fugitive'
@@ -87,7 +89,7 @@ set number
 syntax on
 
 " Color Scheme
-colorscheme basic-dark
+colorscheme slate
 
 " Leader key shortcuts
 " Set up space as leader
