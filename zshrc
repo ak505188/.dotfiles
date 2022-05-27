@@ -1,3 +1,9 @@
+# Performance Profiling
+# zmodload zsh/zprof
+#
+# To check performance, run
+# zsh -i -c exit && zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -41,7 +47,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -73,7 +79,7 @@ ENABLE_CORRECTION="true"
 
 # nvm settings
 export NVM_COMPLETION=true
-export NVM_LAZYLOAD=true
+export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 
 plugins=(

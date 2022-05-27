@@ -13,7 +13,7 @@
       force: true
       path: zshrc
     ~/.dotfiles:
-      force: true
+      force: false
       path: .
     ~/.oh-my-zsh/custom/plugins/zsh-nvm: oh-my-zsh/custom/plugins/zsh-nvm/
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
