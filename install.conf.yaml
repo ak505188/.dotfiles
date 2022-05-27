@@ -10,11 +10,18 @@
   - ~/.vim/undo/
   - ~/.vim/swap/
   - ~/.vim/backup
+  - ~/.config/nvim/autoload
 
 - link:
     ~/.vimrc:
       relink: true
       path: vimrc
+    ~/.vim/autoload/plug.vim:
+      relink: true
+      path: vim/plugin/vim-plug/plug.vim
+    ~/.config/nvim/autoload/plug.vim:
+      relink: true
+      path: vim/plugin/vim-plug/plug.vim
     ~/.zshrc:
       force: true
       path: zshrc

@@ -11,3 +11,6 @@
 [submodule "oh-my-zsh/custom/plugins/zsh-nvm"]
 	path = oh-my-zsh/custom/plugins/zsh-nvm
 	url = https://github.com/phildenhoff/zsh-nvm.git
+[submodule "vim/plugin/vim-plug"]
+	path = vim/plugin/vim-plug
+	url = https://github.com/junegunn/vim-plug
