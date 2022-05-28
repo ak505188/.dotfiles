@@ -1,0 +1,38 @@
+call plug#begin()
+
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'neovim/nvim-lspconfig'
+
+call plug#end()
+
+" Local config
+set encoding=utf-8
+set fileencoding=utf-8
+
+set number
+set relativenumber
+
+nnoremap <Space> <Nop>
+let mapleader="\<Space>"
+
+" Tab for buffer switching
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+nnoremap <Leader>c :bw<CR>
+
+" Copy & Paste to/from system clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+noremap <Leader>P "+P
+
+" fzf.vim
+" CTRL-P to open FZF. Ignore files in gitignore
+nnoremap <expr> <C-P> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
+" fzf.vim :Buffers
+nnoremap <Leader>b :Buffers<CR>
+
+" airline.vim
+let g:airline_section_z = ''

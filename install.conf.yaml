@@ -1,4 +1,4 @@
-- clean: ['~', '~/.oh-my-zsh/custom/', '~/.oh-my-zsh/custom/plugins/']
+- clean: ['~', '~/.oh-my-zsh/custom/', '~/.oh-my-zsh/custom/plugins/', '~/.config/nvim']
 
 - shell:
   - [sh pre-install.sh, Running pre installation script]
@@ -10,7 +10,7 @@
   - ~/.vim/undo/
   - ~/.vim/swap/
   - ~/.vim/backup
-  - ~/.config/nvim/autoload
+  - ~/.config/nvim/
 
 - link:
     ~/.vimrc:
@@ -19,6 +19,9 @@
     ~/.vim/autoload/plug.vim:
       relink: true
       path: vim/plugin/vim-plug/plug.vim
+    ~/.config/nvim:
+      glob: true
+      path: nvim/**/*
     ~/.config/nvim/autoload/plug.vim:
       relink: true
       path: vim/plugin/vim-plug/plug.vim
