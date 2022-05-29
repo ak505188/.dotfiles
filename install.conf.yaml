@@ -19,9 +19,8 @@
     ~/.vim/autoload/plug.vim:
       relink: true
       path: vim/plugin/vim-plug/plug.vim
-    ~/.config/nvim:
-      glob: true
-      path: nvim/**/*
+    ~/.config/nvim/lua:
+      path: nvim/lua
     ~/.config/nvim/autoload/plug.vim:
       relink: true
       path: vim/plugin/vim-plug/plug.vim
