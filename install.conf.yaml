@@ -21,9 +21,8 @@
       path: vim/plugin/vim-plug/plug.vim
     ~/.config/nvim/lua:
       path: nvim/lua
-    ~/.config/nvim/autoload/plug.vim:
-      relink: true
-      path: vim/plugin/vim-plug/plug.vim
+    ~/.config/nvim/init.lua:
+      path: nvim/init.lua
     ~/.zshrc:
       force: true
       path: zshrc
