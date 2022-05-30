@@ -39,8 +39,9 @@ keymap("n", "<Leader>c", ":bw<CR>", opts)
 
 -- Copy & Paste to/from system clipboard
 keymap("n", "<Leader>y", "\"+y", opts)
-keymap("n", "<Leader>P", "\"+P", opts)
+keymap("n", "<Leader>Y", "\"+Y", opts)
 keymap("n", "<Leader>p", "\"+p", opts)
+keymap("n", "<Leader>P", "\"+P", opts)
 
 -- Insert --
 
@@ -70,4 +71,4 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>g>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
