@@ -43,10 +43,12 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "folke/tokyonight.nvim" -- Tokyo Night colorscheme
-  -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-
   use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   -- Required by: [telescope]
+
+  -- Helpful stuff
+  use "terrortylor/nvim-comment" -- Toggle comments
+  use "tpope/vim-surround" -- Mappings for surround
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -74,6 +76,10 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow" -- Different colored [{{})]
+
+  -- Git
+  use "tpope/vim-fugitive" -- Git "gui"
+  use "lewis6991/gitsigns.nvim" -- Gitsigns
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

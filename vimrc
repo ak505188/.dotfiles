@@ -176,5 +176,4 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 " Open Nerdtree
-"
 nnoremap <Leader>f :NERDTreeToggle<CR>
