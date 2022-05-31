@@ -48,6 +48,7 @@ return packer.startup(function(use)
 
   -- Helpful stuff
   use "terrortylor/nvim-comment" -- Toggle comments
+  use "tpope/vim-surround" -- Mappings for surround
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -78,6 +79,7 @@ return packer.startup(function(use)
 
   -- Git
   use "tpope/vim-fugitive" -- Git "gui"
+  use "lewis6991/gitsigns.nvim" -- Gitsigns
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
