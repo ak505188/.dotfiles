@@ -9,4 +9,4 @@
 [color]
 	ui = auto
 [credential]
-	helper = cache
+	helper = store
