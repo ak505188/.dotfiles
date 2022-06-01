@@ -47,7 +47,7 @@ return packer.startup(function(use)
   -- Required by: [telescope]
 
   -- Helpful stuff
-  use "terrortylor/nvim-comment" -- Toggle comments
+  use "tpope/vim-commentary" -- Toggle comments
   use "tpope/vim-surround" -- Mappings for surround
 
   -- cmp plugins
@@ -80,6 +80,9 @@ return packer.startup(function(use)
   -- Git
   use "tpope/vim-fugitive" -- Git "gui"
   use "lewis6991/gitsigns.nvim" -- Gitsigns
+
+  -- Profle Startup time
+  -- use "dstein64/vim-startuptime" -- Use :StartupTime
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
