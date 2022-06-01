@@ -11,6 +11,7 @@
   - ~/.vim/swap/
   - ~/.vim/backup
   - ~/.config/nvim/
+  - ~/.config/kitty/
 
 - link:
     ~/.vimrc:
@@ -29,6 +30,9 @@
     ~/.gitconfig:
       force: true
       path: gitconfig
+    ~/.config/kitty/kitty.conf:
+      force: true
+      path: terminal/kitty/kitty.conf
     ~/.dotfiles:
       force: false
       path: .
