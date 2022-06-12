@@ -22,6 +22,8 @@
       path: vim/plugin/vim-plug/plug.vim
     ~/.config/nvim/lua:
       path: nvim/lua
+    ~/.config/nvim/after:
+      path: nvim/after
     ~/.config/nvim/init.lua:
       path: nvim/init.lua
     ~/.zshrc:
