@@ -33,7 +33,10 @@ vim.opt.sidescrolloff = 8
 -- vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
 -- My options
-vim.opt.autowriteall = true                      -- Save buffer on buffer exit / change
+vim.opt.autowriteall = true                     -- Save buffer on buffer exit / change
+vim.opt.foldmethod = "expr"                     -- Use Treesitter for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99                     -- Open all folds on file/buffer open
 
 vim.opt.shortmess:append "c"
 
