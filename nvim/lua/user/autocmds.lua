@@ -12,3 +12,8 @@ vim.api.nvim_command([[
   endfun
   autocmd bufwritepre * call StripTrailingWhiteSpace()
 ]])
+
+-- Set .mdx to markdown filetype
+vim.cmd([[
+  autocmd BufNewFile,BufReadPost *.mdx set filetype=markdown.mdx
+]])

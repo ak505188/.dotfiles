@@ -81,6 +81,9 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive" -- Git "gui"
   use "lewis6991/gitsigns.nvim" -- Gitsigns
 
+  -- Languages
+  -- use "findango/vim-mdx" -- MDX syntax highlighting
+
   -- Profle Startup time
   -- use "dstein64/vim-startuptime" -- Use :StartupTime
 

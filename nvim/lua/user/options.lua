@@ -24,7 +24,7 @@ vim.opt.shiftwidth = 2                          -- the number of spaces inserted
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 vim.opt.cursorline = false                      -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
-vim.opt.relativenumber = true                   -- set relative numbered lines
+vim.opt.relativenumber = false                   -- set relative numbered lines
 vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "auto"                     -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = true                             -- display lines as one long line
@@ -33,7 +33,10 @@ vim.opt.sidescrolloff = 8
 -- vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
 -- My options
-vim.opt.autowriteall = true                      -- Save buffer on buffer exit / change
+vim.opt.autowriteall = true                     -- Save buffer on buffer exit / change
+vim.opt.foldmethod = "expr"                     -- Use Treesitter for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99                     -- Open all folds on file/buffer open
 
 vim.opt.shortmess:append "c"
 
