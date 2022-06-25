@@ -32,10 +32,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":w<CR>:bnext<CR>", opts)
+keymap("n", "<S-h>", ":w<CR>:bprevious<CR>", opts)
 -- Close Buffer
-keymap("n", "<Leader>c", ":bw<CR>", opts)
+keymap("n", "<Leader>c", ":w<CR>:bw<CR>", opts)
 
 -- Copy & Paste to/from system clipboard
 keymap("n", "<Leader>y", "\"+y", opts)
