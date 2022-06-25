@@ -81,6 +81,10 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive" -- Git "gui"
   use "lewis6991/gitsigns.nvim" -- Gitsigns
 
+  -- File Explorer
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+
   -- Languages
   -- use "findango/vim-mdx" -- MDX syntax highlighting
 
