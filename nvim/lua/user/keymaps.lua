@@ -50,6 +50,10 @@ keymap("n", "<Leader>P", "\"+P", opts)
 -- keymap("v", "<", "<gv", opts)
 -- keymap("v", ">", ">gv", opts)
 
+-- Copy to/from system clipboard
+keymap("v", "<Leader>y", "\"+y", opts)
+keymap("v", "<Leader>Y", "\"+Y", opts)
+
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
