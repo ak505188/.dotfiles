@@ -43,6 +43,14 @@ keymap("n", "<Leader>Y", "\"+Y", opts)
 keymap("n", "<Leader>p", "\"+p", opts)
 keymap("n", "<Leader>P", "\"+P", opts)
 
+-- Terminal Shortcut
+keymap("n", "<Leader>t", ":terminal<CR>", opts)
+
+-- Fugitive Shortcut
+keymap("n", "<Leader>G", ":G<CR>", opts)
+
+--
+
 -- Insert --
 
 -- Visual --
