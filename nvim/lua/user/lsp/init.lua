@@ -18,10 +18,11 @@ end
 
 mason.setup()
 mason_lspconfig.setup()
+require("user.lsp.handlers").setup()
+
 mason_lspconfig.setup_handlers({
   function (server_name) -- default handler (optional)
     lspconfig[server_name].setup({})
   end,
 })
 
-require("user.lsp.handlers").setup()
