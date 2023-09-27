@@ -3,6 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
+-- Info on keymap apis https://www.reddit.com/r/neovim/comments/uuh8xw/noob_vimkeymapset_vs_vimapinvim_set_keymap_key/
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
