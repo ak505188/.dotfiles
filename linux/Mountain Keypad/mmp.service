@@ -1,0 +1,7 @@
+[Unit]
+Description=Mountain MacroPad driver
+[Service]
+ExecStart=/usr/local/bin/mmp.sh
+Type=forking
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+gcc mmp.c -o mmp
+
+echo "Script uses ydotool, please install it manually"
+echo "Copying files to /usr/local/bin"
+sudo cp ./mmp ./mmp.cfg ./mmp.sh /usr/local/bin
+
+echo "Copying systemd service,"
+sudo cp ./mmp.service /etc/systemd/system/mmp.service
+
+echo "Enabling & starting systemd service"
+sudo systemctl daemon-reload
+sudo systemctl enable mmp.service
+sudo systemctl start mmp.service
+
+echo "Copying inet file to enable F13-F24. Original will be renamed to inet.mmp.backup"
+sudo mv /usr/share/X11/xkb/symbols/inet /usr/share/X11/xkb/symbols/inet.mmp.backup
+sudo mv ./inet /usr/share/X11/xkb/symbols/inet.mmp.backup
+
+echo "Done! You will need to reboot for F13-F24 keys to work."
