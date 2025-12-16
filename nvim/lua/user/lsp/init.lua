@@ -16,6 +16,13 @@ if not mason_lspconfig_ok then
 	return
 end
 
+vim.lsp.config['shopify_theme_ls'] = {
+  -- Filetypes to automatically attach to.
+  filetypes = { 'liquid' },
+  root_dir = vim.fn.getcwd(),
+  name = 'shopify_theme_ls'
+}
+
 mason.setup()
 mason_lspconfig.setup()
 require("user.lsp.handlers").setup()
