@@ -83,8 +83,10 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope
-keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
 
 -- nvim-tree
 keymap("n", "<Leader>f", ":NvimTreeToggle<cr>", opts)

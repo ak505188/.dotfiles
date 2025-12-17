@@ -43,11 +43,16 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "folke/tokyonight.nvim" -- Tokyo Night colorscheme
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   -- Required by: [telescope]
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
 
-  -- Helpful stuff
-  use "tpope/vim-commentary" -- Toggle comments
+  -- Toggle comments
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
   use "tpope/vim-surround" -- Mappings for surround
 
   -- cmp plugins
@@ -71,6 +76,11 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  -- Faster fzf for telescope
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install'
+  }
 
   -- Treesitter
   use {
@@ -86,11 +96,22 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim" -- Gitsigns
 
   -- File Explorer
-  use "kyazdani42/nvim-web-devicons"
+  -- use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
 
   -- Colorizer
   use "norcalli/nvim-colorizer.lua"
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  -- using packer.nvim
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+
+  use { 'folke/lazydev.nvim' }
 
   -- Languages
   -- use "findango/vim-mdx" -- MDX syntax highlighting
