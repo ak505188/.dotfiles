@@ -55,14 +55,13 @@ return packer.startup(function(use)
   }
   use "tpope/vim-surround" -- Mappings for surround
 
-  -- cmp plugins
+  -- Completion plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in language server client.
-  use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for neovim lua
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
