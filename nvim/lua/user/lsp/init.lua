@@ -25,4 +25,3 @@ vim.lsp.config['shopify_theme_ls'] = {
 
 mason.setup()
 mason_lspconfig.setup()
-require("user.lsp.handlers").setup()
