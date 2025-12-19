@@ -2,23 +2,16 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-   local signs = {
-     { name = "DiagnosticSignError", text = "" },
-     { name = "DiagnosticSignWarn", text = "" },
-     { name = "DiagnosticSignHint", text = "" },
-     { name = "DiagnosticSignInfo", text = "" },
-   }
-
-   for _, sign in ipairs(signs) do
-     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-   end
-
   local config = {
     -- disable virtual text
     virtual_text = false,
-    -- show signs
     signs = {
-      active = signs,
+      text = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.HINT] = '',
+        [vim.diagnostic.severity.INFO] = ''
+      }
     },
     update_in_insert = true,
     underline = true,
@@ -35,19 +28,14 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
-
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = 'rounded ' })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.hover({ border = 'rounded ' })
 end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
+    vim.api.nvim_exec2(
       [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
@@ -55,8 +43,7 @@ local function lsp_highlight_document(client)
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]],
-      false
-    )
+    {})
   end
 end
 
@@ -104,8 +91,8 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', 'J', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to next diagnostic' })
 vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys

@@ -6,5 +6,8 @@ return {
   },
   keys = {
     { '<Leader>f', '<cmd>NvimTreeToggle<cr>', desc = "Toggle File Tree" }
-  }
+  },
+  config = function()
+    require('nvim-tree').setup()
+  end
 }
