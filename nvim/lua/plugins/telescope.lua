@@ -11,6 +11,7 @@ return {
     { '<C-p>', '<cmd>Telescope find_files<cr>', desc = 'Telescope find files' },
     { '<leader>g', '<cmd>Telescope live_grep<cr>', desc = 'Telescope live grep' },
     { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Telescope buffers' },
+    { '<leader>h', '<cmd>Telescope help_tags<cr>', desc = 'Telescope help_tags' },
   },
   opts = {
     defaults = {
