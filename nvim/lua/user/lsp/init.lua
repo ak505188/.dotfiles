@@ -18,6 +18,16 @@ vim.lsp.config['shopify_theme_ls'] = {
   name = 'shopify_theme_ls'
 }
 
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true)
+      }
+    }
+  }
+})
+
 mason.setup()
 mason_lspconfig.setup()
 require('user.lsp.handlers').setup()

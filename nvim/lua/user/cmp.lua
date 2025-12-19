@@ -123,6 +123,7 @@ cmp.setup {
   window = {
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      scrollbar = true
     },
   },
   experimental = {
