@@ -1,7 +1,7 @@
 require "user.options"
 require "user.keymaps"
 require "user.lazy"
-require "user.cmp"
+-- require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
 require "user.autocmds"
