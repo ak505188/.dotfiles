@@ -3,6 +3,11 @@ return {
   version = "*",
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
-    require('bufferline').setup({})
+    require('bufferline').setup({
+      options = {
+        diagnostics = 'nvim_lsp',
+        color_icons = true
+      }
+    })
   end
 }
