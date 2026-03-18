@@ -13,9 +13,10 @@ vim.api.nvim_command([[
   autocmd bufwritepre * call StripTrailingWhiteSpace()
 ]])
 
--- Set .mdx to markdown filetype
+-- Set .mdx to markdown filetype, asl to cs filetype
 vim.cmd([[
   autocmd BufNewFile,BufReadPost *.mdx set filetype=markdown.mdx
+  autocmd BufNewFile,BufReadPost *.asl set filetype=cs
 ]])
 
 -- Set .jsx to jsx filetype
@@ -30,3 +31,4 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
     vim.treesitter.start()
   end
 })
+
