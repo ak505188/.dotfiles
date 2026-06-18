@@ -37,8 +37,10 @@ vim.opt.autowriteall = true                     -- Save buffer on buffer exit / 
 vim.opt.foldmethod = "expr"                     -- Use Treesitter for folding
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99                     -- Open all folds on file/buffer open
+vim.opt.nrformats = "unsigned"                  -- CTRL-A & CTRL-X treat numbers as unsigned
 
 vim.opt.shortmess:append "c"
+vim.opt.winborder = 'rounded'
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

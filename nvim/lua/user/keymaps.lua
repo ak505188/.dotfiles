@@ -36,10 +36,14 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":w<CR>:bnext<CR>", opts)
 keymap("n", "<S-h>", ":w<CR>:bprevious<CR>", opts)
--- Close Buffer
--- https://superuser.com/questions/289285/how-to-close-buffer-without-closing-the-window
--- keymap("n", "<Leader>c", ":w<CR>:bw<CR>", opts)
-keymap("n", "<Leader>c", ":w<CR>:bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+vim.keymap.set('n', '<leader>c', function()
+  if vim.bo.buftype == '' and not vim.bo.readonly then
+    vim.cmd('update')
+    vim.cmd('bdelete')
+  else
+    vim.cmd('bdelete!')
+  end
+end, { desc = 'Write and close buffer' })
 
 
 -- Copy & Paste to/from system clipboard

@@ -1,10 +1,20 @@
-vim.lsp.config['shopify_theme_ls'] = {
-  -- Filetypes to automatically attach to.
+vim.lsp.config('shopify_theme_ls', {
+  cmd = {
+    'shopify',
+    'theme',
+    'language-server',
+  },
   filetypes = { 'liquid' },
-  root_dir = vim.fn.getcwd(),
-  root_markers = { 'slate.config.js' },
-  name = 'shopify_theme_ls'
-}
+  root_markers = {
+    '.shopifyignore',
+    '.theme-check.yml',
+    '.theme-check.yaml',
+    'shopify.theme.toml',
+    'vite.config.js',
+    'slate.config.js'
+  },
+  settings = {},
+})
 
 vim.lsp.config('lua_ls', {
   settings = {
@@ -19,4 +29,4 @@ vim.lsp.config('lua_ls', {
   }
 })
 
-require('user.lsp.handlers').setup()
+require('user.lsp.handlers')
