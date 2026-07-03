@@ -26,6 +26,7 @@ return {
       json = { "jsonlint" },
       yaml = { "yamllint" },
       dockerfile = { "hadolint" },
+      scss = { "stylelint" },
     }
 
     -- Example of customizing a built-in linter's arguments. luacheck's default
