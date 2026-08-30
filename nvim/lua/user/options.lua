@@ -34,8 +34,6 @@ vim.opt.sidescrolloff = 8
 
 -- My options
 vim.opt.autowriteall = true                     -- Save buffer on buffer exit / change
-vim.opt.foldmethod = "expr"                     -- Use Treesitter for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99                     -- Open all folds on file/buffer open
 vim.opt.nrformats = "unsigned"                  -- CTRL-A & CTRL-X treat numbers as unsigned
 

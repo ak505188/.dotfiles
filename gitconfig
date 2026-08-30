@@ -6,6 +6,7 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+	autoSetupRemote = true
 [color]
 	ui = auto
 [credential]
